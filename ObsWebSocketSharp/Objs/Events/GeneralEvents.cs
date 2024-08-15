@@ -16,7 +16,7 @@ public record ExitStarted : BaseEvent
 }
 
 /// <summary>
-/// Custom event emitted by <see cref="BroadcastCustomEvent" />.
+/// Custom event emitted by <see cref="Requests.Request.BroadcastCustomEvent" />.
 /// </summary>
 public record CustomEvent : BaseEvent
 {

@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using ObsWebSocketSharp.Objs;
 using ObsWebSocketSharp.Objs.Events;
 using ObsWebSocketSharp.Objs.Messages;
+using ObsWebSocketSharp.Objs.Requests;
 
 namespace ObsWebSocketSharp.Utils;
 
@@ -57,12 +58,25 @@ public static class ProtocolUtils
         return Convert.ToBase64String(temp1);
     }
 
-    public static string MakeData(WebSocketOpCode code, object data) 
+    public static string MakeData(this WebSocketOpCode code, object data) 
     {
         var obj1 = new BaseMessageObj()
         {
             OpCode = code,
             Data = data
+        };
+
+        return JsonConvert.SerializeObject(obj1);
+    }
+
+    public static string MakeData(this BaseRequest request, string uuid)
+    {
+        var name = request.GetRequestType() ?? throw new Exception("Unsupported request type");
+        var obj1 = new RequestMessageObj()
+        {
+            RequestType = name,
+            RequestId = uuid,
+            RequestData = request
         };
 
         return JsonConvert.SerializeObject(obj1);

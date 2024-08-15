@@ -357,15 +357,15 @@ public enum EventSubscription : int
     SceneItemTransformChanged = 1 << 19,
 }
 
-public enum ObsMediaInputAction : int
+public static class ObsMediaInputAction
 {
-    OBS_WEBSOCKET_MEDIA_INPUT_ACTION_NONE,
-    OBS_WEBSOCKET_MEDIA_INPUT_ACTION_PLAY,
-    OBS_WEBSOCKET_MEDIA_INPUT_ACTION_PAUSE,
-    OBS_WEBSOCKET_MEDIA_INPUT_ACTION_STOP,
-    OBS_WEBSOCKET_MEDIA_INPUT_ACTION_RESTART,
-    OBS_WEBSOCKET_MEDIA_INPUT_ACTION_NEXT,
-    OBS_WEBSOCKET_MEDIA_INPUT_ACTION_PREVIOUS,
+    public const string None = "OBS_WEBSOCKET_MEDIA_INPUT_ACTION_NONE";
+    public const string Play = "OBS_WEBSOCKET_MEDIA_INPUT_ACTION_PLAY";
+    public const string Pause = "OBS_WEBSOCKET_MEDIA_INPUT_ACTION_PAUSE";
+    public const string Stop = "OBS_WEBSOCKET_MEDIA_INPUT_ACTION_STOP";
+    public const string Restart = "OBS_WEBSOCKET_MEDIA_INPUT_ACTION_RESTART";
+    public const string Next = "OBS_WEBSOCKET_MEDIA_INPUT_ACTION_NEXT";
+    public const string Previous = "OBS_WEBSOCKET_MEDIA_INPUT_ACTION_PREVIOUS";
 }
 
 public enum ObsOutputState : int
@@ -379,6 +379,18 @@ public enum ObsOutputState : int
     OBS_WEBSOCKET_OUTPUT_RECONNECTED,
     OBS_WEBSOCKET_OUTPUT_PAUSED,
     OBS_WEBSOCKET_OUTPUT_RESUMED
+}
+
+public static class RequestName
+{
+    public const string GetVersion = "GetVersion";
+    public const string GetStats = "GetStats";
+    public const string BroadcastCustomEvent = "BroadcastCustomEvent";
+    public const string CallVendorRequest = "CallVendorRequest";
+    public const string GetHotkeyList = "GetHotkeyList";
+    public const string TriggerHotkeyByName = "TriggerHotkeyByName";
+    public const string TriggerHotkeyByKeySequence = "TriggerHotkeyByKeySequence";
+    public const string Sleep = "Sleep";
 }
 
 public static class EventName

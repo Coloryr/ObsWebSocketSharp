@@ -141,12 +141,12 @@ public record InputVolumeChanged : InputBase
     /// New volume level multiplier
     /// </summary>
     [JsonProperty("inputVolumeMul")]
-    public float InputVolumeMul { get; set; }
+    public double InputVolumeMul { get; set; }
     /// <summary>
     /// New volume level in dB
     /// </summary>
     [JsonProperty("inputVolumeDb")]
-    public float InputVolumeDb { get; set; }
+    public double InputVolumeDb { get; set; }
 }
 
 /// <summary>
@@ -170,7 +170,7 @@ public record InputAudioSyncOffsetChanged : InputBase
     /// New sync offset in milliseconds
     /// </summary>
     [JsonProperty("inputAudioSyncOffset")]
-    public float InputAudioSyncOffset { get; set; }
+    public long InputAudioSyncOffset { get; set; }
 }
 
 /// <summary>

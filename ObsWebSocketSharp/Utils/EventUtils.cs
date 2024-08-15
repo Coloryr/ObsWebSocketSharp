@@ -26,6 +26,16 @@ public static class EventUtils
                 return message.DecodeInputsEvent();
             case EventSubscription.Transitions:
                 return message.DecodeTransitionsEvent();
+            case EventSubscription.Filters:
+                return message.DecodeFiltersEvent();
+            case EventSubscription.SceneItems:
+                return message.DecodeSceneItemsEvent();
+            case EventSubscription.Outputs:
+                return message.DecodeOutputsEvent();
+            case EventSubscription.MediaInputs:
+                return message.DecodeMediaInputsEvent();
+            case EventSubscription.Ui:
+                return message.DecodeUiEvent();
         }
 
         return null;
@@ -101,6 +111,79 @@ public static class EventUtils
         return message.EventType switch
         {
             EventName.Transitions.CurrentSceneTransitionChanged => obj?.ToObject<CurrentSceneTransitionChanged>(),
+            EventName.Transitions.CurrentSceneTransitionDurationChanged => obj?.ToObject<CurrentSceneTransitionDurationChanged>(),
+            EventName.Transitions.SceneTransitionStarted => obj?.ToObject<SceneTransitionStarted>(),
+            EventName.Transitions.SceneTransitionEnded => obj?.ToObject<SceneTransitionEnded>(),
+            EventName.Transitions.SceneTransitionVideoEnded => obj?.ToObject<SceneTransitionVideoEnded>(),
+            _ => null,
+        };
+    }
+
+    private static BaseEvent? DecodeFiltersEvent(this EventMessageObj message)
+    {
+        var obj = message.EventData as JObject;
+        return message.EventType switch
+        {
+            EventName.Filters.SourceFilterListReindexed => obj?.ToObject<SourceFilterListReindexed>(),
+            EventName.Filters.SourceFilterCreated => obj?.ToObject<SourceFilterCreated>(),
+            EventName.Filters.SourceFilterRemoved => obj?.ToObject<SourceFilterRemoved>(),
+            EventName.Filters.SourceFilterNameChanged => obj?.ToObject<SourceFilterNameChanged>(),
+            EventName.Filters.SourceFilterSettingsChanged => obj?.ToObject<SourceFilterSettingsChanged>(),
+            EventName.Filters.SourceFilterEnableStateChanged => obj?.ToObject<SourceFilterEnableStateChanged>(),
+            _ => null,
+        };
+    }
+
+    private static BaseEvent? DecodeSceneItemsEvent(this EventMessageObj message)
+    {
+        var obj = message.EventData as JObject;
+        return message.EventType switch
+        {
+            EventName.SceneItems.SceneItemCreated => obj?.ToObject<SceneItemCreated>(),
+            EventName.SceneItems.SceneItemRemoved => obj?.ToObject<SceneItemRemoved>(),
+            EventName.SceneItems.SceneItemListReindexed => obj?.ToObject<SceneItemListReindexed>(),
+            EventName.SceneItems.SceneItemEnableStateChanged => obj?.ToObject<SceneItemEnableStateChanged>(),
+            EventName.SceneItems.SceneItemLockStateChanged => obj?.ToObject<SceneItemLockStateChanged>(),
+            EventName.SceneItems.SceneItemSelected => obj?.ToObject<SceneItemSelected>(),
+            EventName.SceneItems.SceneItemTransformChanged => obj?.ToObject<SceneItemTransformChanged>(),
+            _ => null,
+        };
+    }
+
+    private static BaseEvent? DecodeOutputsEvent(this EventMessageObj message)
+    {
+        var obj = message.EventData as JObject;
+        return message.EventType switch
+        {
+            EventName.Outputs.StreamStateChanged => obj?.ToObject<StreamStateChanged>(),
+            EventName.Outputs.RecordStateChanged => obj?.ToObject<RecordStateChanged>(),
+            EventName.Outputs.RecordFileChanged => obj?.ToObject<RecordFileChanged>(),
+            EventName.Outputs.ReplayBufferStateChanged => obj?.ToObject<ReplayBufferStateChanged>(),
+            EventName.Outputs.VirtualcamStateChanged => obj?.ToObject<VirtualcamStateChanged>(),
+            EventName.Outputs.ReplayBufferSaved => obj?.ToObject<ReplayBufferSaved>(),
+            _ => null,
+        };
+    }
+
+    private static BaseEvent? DecodeMediaInputsEvent(this EventMessageObj message)
+    {
+        var obj = message.EventData as JObject;
+        return message.EventType switch
+        {
+            EventName.MediaInputs.MediaInputPlaybackStarted => obj?.ToObject<MediaInputPlaybackStarted>(),
+            EventName.MediaInputs.MediaInputPlaybackEnded => obj?.ToObject<MediaInputPlaybackEnded>(),
+            EventName.MediaInputs.MediaInputActionTriggered => obj?.ToObject<MediaInputActionTriggered>(),
+            _ => null,
+        };
+    }
+
+    private static BaseEvent? DecodeUiEvent(this EventMessageObj message)
+    {
+        var obj = message.EventData as JObject;
+        return message.EventType switch
+        {
+            EventName.Ui.StudioModeStateChanged => obj?.ToObject<StudioModeStateChanged>(),
+            EventName.Ui.ScreenshotSaved => obj?.ToObject<ScreenshotSaved>(),
             _ => null,
         };
     }
