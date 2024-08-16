@@ -193,7 +193,7 @@ public record InputAudioMonitorTypeChanged : InputBase
     /// <summary>
     /// New monitor type of the input
     /// 
-    /// See <see cref="MonitorTypeName" />
+    /// See <see cref="ObsMonitorTypeName" />
     /// </summary>
     [JsonProperty("monitorType")]
     public string MonitorType { get; set; }

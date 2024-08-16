@@ -391,6 +391,75 @@ public static class RequestName
     public const string TriggerHotkeyByName = "TriggerHotkeyByName";
     public const string TriggerHotkeyByKeySequence = "TriggerHotkeyByKeySequence";
     public const string Sleep = "Sleep";
+
+    public const string GetPersistentData = "GetPersistentData";
+    public const string SetPersistentData = "SetPersistentData";
+    public const string GetSceneCollectionList = "GetSceneCollectionList";
+    public const string SetCurrentSceneCollection = "SetCurrentSceneCollection";
+    public const string CreateSceneCollection = "CreateSceneCollection";
+    public const string GetProfileList = "GetProfileList";
+    public const string SetCurrentProfile = "SetCurrentProfile";
+    public const string CreateProfile = "CreateProfile";
+    public const string RemoveProfile = "RemoveProfile";
+    public const string GetProfileParameter = "GetProfileParameter";
+    public const string SetProfileParameter = "SetProfileParameter";
+    public const string GetVideoSettings = "GetVideoSettings";
+    public const string SetVideoSettings = "SetVideoSettings";
+    public const string GetStreamServiceSettings = "GetStreamServiceSettings";
+    public const string SetStreamServiceSettings = "SetStreamServiceSettings";
+    public const string GetRecordDirectory = "GetRecordDirectory";
+    public const string SetRecordDirectory = "SetRecordDirectory";
+
+    public const string GetSourceActive = "GetSourceActive";
+    public const string GetSourceScreenshot = "GetSourceScreenshot";
+    public const string SaveSourceScreenshot = "SaveSourceScreenshot";
+
+    public const string GetSceneList = "GetSceneList";
+    public const string GetGroupList = "GetGroupList";
+    public const string GetCurrentProgramScene = "GetCurrentProgramScene";
+    public const string SetCurrentProgramScene = "SetCurrentProgramScene";
+    public const string GetCurrentPreviewScene = "GetCurrentPreviewScene";
+    public const string SetCurrentPreviewScene = "SetCurrentPreviewScene";
+    public const string CreateScene = "CreateScene";
+    public const string RemoveScene = "RemoveScene";
+    public const string SetSceneName = "SetSceneName";
+    public const string GetSceneSceneTransitionOverride = "GetSceneSceneTransitionOverride";
+    public const string SetSceneSceneTransitionOverride = "SetSceneSceneTransitionOverride";
+
+    public const string GetInputList = "GetInputList";
+    public const string GetInputKindList = "GetInputKindList";
+    public const string GetSpecialInputs = "GetSpecialInputs";
+    public const string CreateInput = "CreateInput";
+    public const string RemoveInput = "RemoveInput";
+    public const string SetInputName = "SetInputName";
+    public const string GetInputDefaultSettings = "GetInputDefaultSettings";
+    public const string GetInputSettings = "GetInputSettings";
+    public const string SetInputSettings = "SetInputSettings";
+    public const string GetInputMute = "GetInputMute";
+    public const string SetInputMute = "SetInputMute";
+    public const string ToggleInputMute = "ToggleInputMute";
+    public const string GetInputVolume = "GetInputVolume";
+    public const string SetInputVolume = "SetInputVolume";
+    public const string GetInputAudioBalance = "GetInputAudioBalance";
+    public const string SetInputAudioBalance = "SetInputAudioBalance";
+    public const string GetInputAudioSyncOffset = "GetInputAudioSyncOffset";
+    public const string SetInputAudioSyncOffset = "SetInputAudioSyncOffset";
+    public const string GetInputAudioMonitorType = "GetInputAudioMonitorType";
+    public const string SetInputAudioMonitorType = "SetInputAudioMonitorType";
+    public const string GetInputAudioTracks = "GetInputAudioTracks";
+}
+
+public static class StreamServiceType
+{
+    public const string RtmpCommon = "rtmp_common";
+    public const string RtmpCustom = "rtmp_custom";
+}
+
+public static class ObsMonitorTypeName
+{
+    public const string None = "OBS_MONITORING_TYPE_NONE";
+    public const string MonitorOnly = "OBS_MONITORING_TYPE_MONITOR_ONLY";
+    public const string MonitorAndOutput = "OBS_MONITORING_TYPE_MONITOR_AND_OUTPUT";
 }
 
 public static class EventName
@@ -491,11 +560,4 @@ public static class EventName
         public const string StudioModeStateChanged = "StudioModeStateChanged";
         public const string ScreenshotSaved = "ScreenshotSaved";
     }
-}
-
-public static class MonitorTypeName
-{
-    public const string None = "OBS_MONITORING_TYPE_NONE";
-    public const string MonitorOnly = "OBS_MONITORING_TYPE_MONITOR_ONLY";
-    public const string MonitorAndOutput = "OBS_MONITORING_TYPE_MONITOR_AND_OUTPUT";
 }

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace ObsWebSocketSharp.Objs.Responses;
 
-public static class Response
+public static partial class Response
 {
     /// <summary>
     /// Gets data about the current plugin and RPC version.
